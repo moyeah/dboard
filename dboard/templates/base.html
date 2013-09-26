@@ -11,6 +11,9 @@
     <!-- Bootstrap core CSS -->
     <link href="{% static "assets/css/bootstrap.css" %}" rel="stylesheet">
 
+    <!-- Bootstrap theme -->
+    <link href="{% static "assets/css/bootstrap-theme.css" %}" rel="stylesheet">
+
     <!-- Custom sytle for this template -->
     <link href="{% static "assets/css/base-template.css" %}" rel="stylesheet">
   </head>
@@ -36,16 +39,14 @@
       </div>
     </div>
     <div class="container">
-      <div class="base-template">
-        {% block content %}
-        <h1>DBoard starter template</h1>
-        <p class="lead">Use this application to quickly manager projects...</p>
-        {% endblock %}
-      </div>
+      {% block content %}
+      <h1>DBoard starter template</h1>
+      <p class="lead">Use this application to quickly manager projects...</p>
+      {% endblock %}
     </div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="{% static "assets/js/jquery.js" %}"></script>
-    <script src="{% static "assets/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "assets/js/bootstrap.js" %}"></script>
   </body>
 </html>
