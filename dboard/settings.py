@@ -118,9 +118,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'accounts',
+    'entities',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'accounts',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
