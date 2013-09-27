@@ -2,44 +2,45 @@
 
 {% block content %}
 
-<div class="page-header">
-  <h1>Please sign in</h1>
+<div class="row">
+  <div class="large-12 columns">
+    <h1 class="docs header">Welcome to DBoard</h1>
+    <hr>
+  </div>
 </div>
 
-<form class="form-horizontal" role="form" method="post" action="{% url 'django.contrib.auth.views.login' %}">
-  {% csrf_token %}
-  {% if form.non_field_errors %}
-  <div class="alert alert-danger alert-dismissable">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    {{ form.non_field_errors|striptags }}
+<div class="row">
+  <div class="large-6 large-centered columns">
+    <div class="panel radius">
+      <h3>Please sign in</h3>
+
+      <form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+        <div data-alert class="alert-box alert radius">
+          {{ form.non_field_errors|striptags }}
+          <a href="" class="close">&times;</a>
+        </div>
+        {% endif %}
+        {% for field in form %}
+        <div class="row">
+          <div class="large-12 large-centered columns">
+            {% if field.errors %}
+            <div class="error">
+            {% endif %}
+              {{ field.label_tag }}
+              {{ field }}
+            {% if field.errors %}
+            </div>
+            <small class="error">{{ field.errors|striptags }}</small>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+        <input type="submit" value="Sign in" class="small button radius" />
+      </form>
+    </div>
   </div>
-  {% endif %}
-  <div class="form-group{% if form.username.errors %} has-error{% endif %}">
-    <div class="col-lg-2 control-label">
-      {{ form.username.label_tag }}
-    </div>
-    <div class="form-control">
-      {{ form.username }}
-      {% if form.username.errors %}
-      <span class="help-block">{{ form.username.errors|striptags}}</span>
-      {% endif %}
-    </div>
-  </div>
-  <div class="form-group{% if form.password.errors %} has-error{% endif %}">
-    <div class="col-lg-2 control-label">
-      {{ form.password.label_tag }}
-    </div>
-    <div class="form-control">
-      {{ form.password }}
-      {% if form.password.errors %}
-      <span class="help-block">{{ form.password.errors|striptags}}</span>
-      {% endif %}
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    </div>
-</form>
+</div>
 
 {% endblock %}

@@ -69,8 +69,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    ('assets', '/home/daniel/dboard/bootstrap'),
-    ('assets', '/home/daniel/dboard/static'),
+    ('assets', '/home/daniel/dboard/foundation'),
 )
 
 # List of finder classes that know how to find static files in
